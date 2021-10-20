@@ -1,4 +1,4 @@
-
+require "byebug"
 # def range(min, max)
 #     r = []
 #     (min...max).each { |ele| r << ele }
@@ -145,17 +145,32 @@ end
 
 def bsearch(array, value)
     return nil if array.empty?
-    middle = (array.length-1) / 2
-    array.each_with_index 
+    # return nil if !array.include?(value)
+
+    # debugger
+    indeces = array.dup.freeze  #[1, 2, 3]
+    
+    middle = (array.length) / 2
+    left = array[(0...middle)]
+    right = array[(middle..-1)]
+
+    # debugger
+    if array[middle] == value
+      return indeces.index(value) 
+    elsif value < array[middle]
+        bsearch(left, value)
+    else
+        middle + bsearch(right, value)
+    end
     #somewhere bsearch(array[(0..-2)]
 end
 
 
 
-bsearch([1, 2, 3], 1) # => 0
-bsearch([2, 3, 4, 5], 3) # => 1
-bsearch([2, 4, 6, 8, 10], 6) # => 2
-bsearch([1, 3, 4, 5, 9], 5) # => 3
-bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
-bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
-bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
+puts bsearch([1, 2, 3], 1) # => 0
+puts bsearch([2, 3, 4, 5], 3) # => 1
+puts bsearch([2, 4, 6, 8, 10], 6) # => 2
+puts bsearch([1, 3, 4, 5, 9], 5) # => 3
+puts bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
+puts bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
+puts bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
