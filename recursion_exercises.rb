@@ -81,3 +81,27 @@ end
 # Make sure you can trace from the very beginning to the very end in these examples.
 
 # How many examples do you need to walk through to be confident that it works?
+
+# def deep_dup(arrays)
+#     return [] if arrays.empty?
+#     dup = []
+    
+#     arrays.each do |subarr|
+#         if !subarr.is_a?(Array)
+#             dup << subarr
+#         else
+#             dup << deep_dup(subarr)
+#         end
+#     end
+#     dup
+# end
+
+# p deep_dup [[1,2,3],[4,5,6],[7]]
+
+# robot_parts = [
+#   ["nuts", "bolts", "washers"],
+#   ["capacitors", "resistors", "inductors"]
+# ]
+
+# Using recursion and the is_a? method, write an Array#deep_dup method that will
+# perform a "deep" duplication of the interior arrays.
