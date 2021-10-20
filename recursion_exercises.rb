@@ -105,3 +105,40 @@ end
 
 # Using recursion and the is_a? method, write an Array#deep_dup method that will
 # perform a "deep" duplication of the interior arrays.
+
+
+# Fibonacci
+# Write a recursive and an iterative Fibonacci method. The method should 
+# take in an integer n and return the first n Fibonacci numbers in an array.
+
+# You shouldn't have to pass any arrays between methods; you should be able
+#  to do this just passing a single argument for the number of Fibonacci numbers requested.
+
+# 0, 1, 1, 2, 3, 5, 8, 13
+
+# def fib(n)
+#     return [] if n == 0
+#     return [0] if n == 1
+#     return [0, 1] if n == 2
+#     arr = [0, 1]
+#     # (0...arr.length - 1).each do |i|
+#     while arr.length < n
+#         arr << arr[-1] + arr[-2]
+#     end
+#     # n -= 1
+#     arr
+# end
+
+def fib(n)
+    return nil if n < 0
+    return [] if n == 0
+    return [0] if n == 1
+    return [0, 1] if n == 2
+
+    arr = [0, 1]
+    # fib(n - 1)[-1] + fib(n - 1)[-2]
+    fib(n - 1) << fib(n - 1)[-1] + fib(n - 1)[-2]
+    # arr
+end
+
+p fib(-8)
