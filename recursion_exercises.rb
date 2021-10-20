@@ -129,16 +129,33 @@ end
 #     arr
 # end
 
-def fib(n)
-    return nil if n < 0
-    return [] if n == 0
-    return [0] if n == 1
-    return [0, 1] if n == 2
+# def fib(n)
+#     return nil if n < 0
+#     return [] if n == 0
+#     return [0] if n == 1
+#     return [0, 1] if n == 2
 
-    arr = [0, 1]
-    # fib(n - 1)[-1] + fib(n - 1)[-2]
-    fib(n - 1) << fib(n - 1)[-1] + fib(n - 1)[-2]
-    # arr
+#     arr = [0, 1]
+#     # fib(n - 1)[-1] + fib(n - 1)[-2]
+#     fib(n - 1) << fib(n - 1)[-1] + fib(n - 1)[-2]
+#     # arr
+# end
+
+# p fib(-8)
+
+def bsearch(array, value)
+    return nil if array.empty?
+    middle = (array.length-1) / 2
+    array.each_with_index 
+    #somewhere bsearch(array[(0..-2)]
 end
 
-p fib(-8)
+
+
+bsearch([1, 2, 3], 1) # => 0
+bsearch([2, 3, 4, 5], 3) # => 1
+bsearch([2, 4, 6, 8, 10], 6) # => 2
+bsearch([1, 3, 4, 5, 9], 5) # => 3
+bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
+bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
+bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
